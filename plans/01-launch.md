@@ -3,7 +3,7 @@
 > Roadmap ejecutable a `mirchez.com` live. Bloques chicos, cada uno testeable solo. Si un bloque falla el test, no avanzamos. No batch merge — cada fase es un PR/commit revisable en preview.
 
 **Última actualización:** 2026-05-02
-**Estado global:** ⚪ no iniciado
+**Estado global:** 🟡 Phase 0 done, Phase 1 next
 
 Leyenda: ⚪ pendiente · 🟡 en progreso · 🟢 done · ❌ bloqueado
 
@@ -21,9 +21,17 @@ Antes de Phase 0, Miguel resuelve:
 
 ---
 
-## Phase 0 — Repo init & scaffolding
+## Phase 0 — Repo init & scaffolding 🟢
 
 **Goal:** repo Git inicializado, Next.js 15 corriendo en localhost.
+
+**Resultado (2026-05-02):**
+- Next.js 16.2.4 + React 19.2.4 + Tailwind v4 + TS 5.9 + ESLint 9 + Turbopack
+- Repo: `github.com/mirchez/blog`
+- Vercel project: `prj_fiJtkqAiUA3lzOAr2Z0xEX4GqoX3`, framework auto-detected
+- URL limpia: `blog-phi-ten-96.vercel.app`
+- typecheck + lint + build limpios
+- Auto-deploy en push a `main` activo
 
 **Tareas:**
 - [ ] `git init` en `personal-website/`. `.gitignore` standard Next.js.
