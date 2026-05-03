@@ -2,6 +2,16 @@ import redis from "@/app/redis";
 
 const BOT_REGEX = /bot|crawler|spider|crawl|preview|fetch|monitor|googleother/i;
 
+export async function GET(req: Request) {
+  const id = new URL(req.url).searchParams.get("id");
+  if (!id) {
+    return Response.json({ redis: !!redis, views: null });
+  }
+  const raw = redis ? await redis.hget<string | number>("views", id) : null;
+  const views = typeof raw === "number" ? raw : Number(raw ?? 0);
+  return Response.json({ redis: !!redis, id, views });
+}
+
 export async function POST(req: Request) {
   if (!redis) {
     return new Response(null, { status: 200 });
