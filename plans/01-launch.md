@@ -3,7 +3,7 @@
 > Roadmap ejecutable a `mirchez.com` live. Bloques chicos, cada uno testeable solo. Si un bloque falla el test, no avanzamos. No batch merge — cada fase es un PR/commit revisable en preview.
 
 **Última actualización:** 2026-05-02
-**Estado global:** 🟡 Phase 0-4 + 7-8 done, Phase 5/6/9 pendientes
+**Estado global:** 🟡 Phase 0-4 + 6-8 done, Phase 5/9 pendientes
 
 > **Nota arquitectónica (2026-05-02):** Phase 2 cambió respecto al plan original. Posts viven como rutas nativas (`app/(post)/<year>/<slug>/page.mdx`) + manifest `app/posts.json`, igual que rauchg/blog — NO en una carpeta `posts/` con dynamic route. Plan detallado de la fase: `~/.claude/plans/image-24-unified-goose.md`. También se sumó light/dark auto via `prefers-color-scheme` (no estaba en el plan original).
 
@@ -192,9 +192,20 @@ Antes de Phase 0, Miguel resuelve:
 
 ---
 
-## Phase 6 — View counts (Vercel KV)
+## Phase 6 — View counts (Upstash Redis) 🟢
 
 **Goal:** view counts reales por post, persistentes.
+
+**Resultado (2026-05-02):**
+- Upstash for Redis instance creada via Vercel marketplace (Free tier, 500K commands/mes)
+- Database name: `blog-views`, region: iad1, eviction: false
+- Vercel auto-injecta env vars: `KV_REST_API_URL`, `KV_REST_API_TOKEN` (más extras de Upstash)
+- `app/redis.ts` + `app/get-posts.ts` mergea views del hash redis 'views'
+- `app/api/incr` POST: incrementa `redis.hincrby('views', id, 1)`, filtra bots por UA
+- `app/api/incr` GET (debug): retorna `{redis, views}` para diagnóstico
+- `<ViewCounter />` client fires once on mount (no UI, fire-and-forget)
+- Verificado end-to-end: `curl /api/incr?id=hello-world` → `{redis:true, views:5}`
+- ISR revalidate=300 en home y post → counts se refrescan cada 5 min
 
 **Tareas:**
 - [ ] Crear KV store en Vercel dashboard. Conectar al proyecto. `pnpm i @vercel/kv`.
