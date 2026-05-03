@@ -11,6 +11,12 @@ export type Post = {
   viewsFormatted: string;
 };
 
+type ManifestEntry = {
+  id: string;
+  date: string;
+  title: string;
+};
+
 type ViewsHash = Record<string, string | number>;
 
 export async function getPosts(): Promise<Post[]> {
@@ -18,7 +24,9 @@ export async function getPosts(): Promise<Post[]> {
     ? await redis.hgetall<ViewsHash>("views").catch(() => null)
     : null;
 
-  const posts: Post[] = postsData.posts
+  const entries = postsData.posts as ManifestEntry[];
+
+  const posts: Post[] = entries
     .map((post) => {
       const raw = allViews?.[post.id];
       const views = typeof raw === "number" ? raw : Number(raw ?? 0);
