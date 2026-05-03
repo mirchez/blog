@@ -2,11 +2,13 @@ import Image from "next/image";
 import miguelPhoto from "../public/profile/miguel_profile.jpg";
 import { Links } from "@/components/links";
 import { Lead } from "@/components/lead";
+import { A } from "@/app/(post)/components/a";
+import { Contributions, Contribution } from "@/app/(post)/components/contributions";
 
 <Image
   src={miguelPhoto}
   alt="Miguel Miranda"
-  className="rounded-full bg-zinc-100 dark:bg-zinc-800 block mt-2 mb-5 w-40 h-40 mx-auto sm:float-right sm:ml-5 sm:mb-5 object-cover"
+  className="rounded-full bg-zinc-100 dark:bg-zinc-800 block mt-2 mb-5 w-32 h-32 sm:w-40 sm:h-40 mx-auto sm:float-right sm:ml-5 sm:mb-5 object-cover"
   priority
 />
 
@@ -24,8 +26,14 @@ Outside of work I co-founded [Talkeo](https://www.talkeo.ai), an AI voice tutor 
 
 ## Technical contributions
 
-— Software engineer at [Brightlight Health](https://www.brightlight.health), a Canadian healthcare SaaS. I ship clinical EMR features in production — scheduling, billing, video, PDF forms with LLM autofill — used by real clinics.
-
-— Co-founded [Talkeo](https://www.talkeo.ai), an AI voice tutor for Spanish and Portuguese speakers learning English. Built the voice pipeline on LiveKit with sub-second turn latency.
-
-— Built personal projects to learn and ship the latest tech, like [Telos](https://telos-steel.vercel.app) and [Sync](https://sync-theta-five.vercel.app). More on my [portfolio](https://miguel-miranda-portfolio.vercel.app/projects).
+<Contributions>
+  <Contribution>
+    Software engineer at <A href="https://www.brightlight.health">Brightlight Health</A>, a Canadian healthcare SaaS. I ship clinical EMR features in production — scheduling, billing, video, PDF forms with LLM autofill — used by real clinics.
+  </Contribution>
+  <Contribution>
+    Co-founded <A href="https://www.talkeo.ai">Talkeo</A>, an AI voice tutor for Spanish and Portuguese speakers learning English. Built the voice pipeline on LiveKit with sub-second turn latency.
+  </Contribution>
+  <Contribution>
+    Built personal projects to learn and ship the latest tech, like <A href="https://telos-steel.vercel.app">Telos</A> and <A href="https://sync-theta-five.vercel.app">Sync</A>. More on my <A href="https://miguel-miranda-portfolio.vercel.app/projects">portfolio</A>.
+  </Contribution>
+</Contributions>
