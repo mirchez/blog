@@ -1,0 +1,34 @@
+import Image from "next/image";
+import miguelPhoto from "../../public/profile/miguel_profile.jpg";
+
+export const metadata = {
+  title: "About",
+  description: "Miguel Miranda — AI engineer from Paraguay shipping production-ready software.",
+  openGraph: {
+    title: "About — Miguel Miranda",
+    description: "Miguel Miranda — AI engineer from Paraguay shipping production-ready software.",
+  },
+};
+
+# About
+
+<Image
+  src={miguelPhoto}
+  alt="Miguel Miranda"
+  className="rounded-full bg-zinc-100 dark:bg-zinc-800 block mt-2 mb-5 w-48 h-48 mx-auto sm:float-right sm:ml-5 sm:mb-5 object-cover"
+  priority
+/>
+
+I'm a software engineer from Ciudad del Este, Paraguay. I started programming in 2024, pushed by my best friend José, and I've been shipping production software ever since.
+
+In August 2025 I joined [Brightlight Health](https://brightlight.ai), a Canadian healthcare SaaS, where I work end-to-end on a clinical EMR used by real clinics and patients.
+
+Outside of work I co-founded [Talkeo](https://talkeo.ai), an AI voice tutor that teaches English to Spanish and Portuguese speakers. We're pre-launch and applying to Y Combinator.
+
+## Technical contributions
+
+— At [Brightlight Health](https://brightlight.ai), I shipped multi-timezone scheduling with drag-and-drop, billing with Stripe, PDF forms using Adobe's API with LLM autofill, video sessions with JWT auth and AI transcription, and a storage migration from Azure to AWS S3 in production.
+
+— Co-founded [Talkeo](https://talkeo.ai), an AI voice language tutor. I built the pedagogy prompts (CEFR-aligned, code-switching policy, L1 transfer error correction), the LiveKit voice pipeline, and the Fish Audio TTS integration.
+
+— Built [Telos](https://telos-steel.vercel.app), an AI website builder that generates full sites from prompts. Next.js, tRPC, Prisma, OpenAI, with async AI workflows orchestrated through Inngest.
