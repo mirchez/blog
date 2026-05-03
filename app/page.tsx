@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getPosts } from "./get-posts";
 
@@ -26,6 +27,14 @@ export default async function Home() {
 
   return (
     <div className="py-16">
+      <Image
+        src="/profile/miguel_profile.jpg"
+        alt="Miguel Miranda"
+        width={64}
+        height={64}
+        priority
+        className="mb-8 rounded-full object-cover"
+      />
       <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
         Miguel Miranda
       </h1>
