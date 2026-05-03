@@ -3,7 +3,7 @@
 > Roadmap ejecutable a `mirchez.com` live. Bloques chicos, cada uno testeable solo. Si un bloque falla el test, no avanzamos. No batch merge — cada fase es un PR/commit revisable en preview.
 
 **Última actualización:** 2026-05-02
-**Estado global:** 🟡 Phase 0-4 + 7 done, Phase 5/6/8 pendientes
+**Estado global:** 🟡 Phase 0-4 + 7-8 done, Phase 5/6/9 pendientes
 
 > **Nota arquitectónica (2026-05-02):** Phase 2 cambió respecto al plan original. Posts viven como rutas nativas (`app/(post)/<year>/<slug>/page.mdx`) + manifest `app/posts.json`, igual que rauchg/blog — NO en una carpeta `posts/` con dynamic route. Plan detallado de la fase: `~/.claude/plans/image-24-unified-goose.md`. También se sumó light/dark auto via `prefers-color-scheme` (no estaba en el plan original).
 
@@ -244,9 +244,17 @@ Antes de Phase 0, Miguel resuelve:
 
 ---
 
-## Phase 8 — Domain & production deploy
+## Phase 8 — Domain & production deploy 🟢
 
 **Goal:** `mirchez.com` live con HTTPS.
+
+**Resultado (2026-05-02):**
+- Dominio comprado en Cloudflare Registrar (1 año, $10.46)
+- Vercel project linkeado a `mirchez.com` como production
+- DNS: 1 CNAME en Cloudflare apex → `72607eeec2b43c0b.vercel-dns-016.com` (DNS only, sin proxy naranja)
+- SSL emitido automáticamente por Vercel
+- Verificado: `curl https://mirchez.com` → HTTP/2 200, server: Vercel, todos los meta tags correctos
+- Pendiente menor: agregar `www.mirchez.com` como redirect al apex
 
 **Tareas:**
 - [ ] Comprar `mirchez.com` (si no comprado).
