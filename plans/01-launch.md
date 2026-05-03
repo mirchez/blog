@@ -3,7 +3,7 @@
 > Roadmap ejecutable a `mirchez.com` live. Bloques chicos, cada uno testeable solo. Si un bloque falla el test, no avanzamos. No batch merge — cada fase es un PR/commit revisable en preview.
 
 **Última actualización:** 2026-05-02
-**Estado global:** 🟡 Phase 0-4 done (con cambios), Phase 5 next
+**Estado global:** 🟡 Phase 0-4 + 7 done, Phase 5/6/8 pendientes
 
 > **Nota arquitectónica (2026-05-02):** Phase 2 cambió respecto al plan original. Posts viven como rutas nativas (`app/(post)/<year>/<slug>/page.mdx`) + manifest `app/posts.json`, igual que rauchg/blog — NO en una carpeta `posts/` con dynamic route. Plan detallado de la fase: `~/.claude/plans/image-24-unified-goose.md`. También se sumó light/dark auto via `prefers-color-scheme` (no estaba en el plan original).
 
@@ -214,9 +214,17 @@ Antes de Phase 0, Miguel resuelve:
 
 ---
 
-## Phase 7 — SEO, RSS, sitemap, OG
+## Phase 7 — SEO, RSS, sitemap, OG 🟢
 
 **Goal:** site indexable y compartible.
+
+**Resultado (2026-05-02):**
+- `app/sitemap.ts` → `/sitemap.xml`: home + about + todos los posts del manifest
+- `app/robots.ts` → `/robots.txt`: allow all + sitemap reference
+- `app/rss.xml/route.ts` → `/rss.xml`: feed 2.0 con XML escape, atom self-link, revalidate 1h
+- `app/opengraph-image.tsx`: OG dinámica 1200x630 negra con nombre + tagline (Next.js `ImageResponse`)
+- `app/layout.tsx`: agregado `alternates.canonical` + `alternates.types['application/rss+xml']` para auto-discovery de feed
+- Build muestra 9 rutas estáticas (home, post, _not-found, opengraph-image, robots.txt, rss.xml, sitemap.xml)
 
 **Tareas:**
 - [ ] `app/sitemap.ts`: home + about + todos los posts.
