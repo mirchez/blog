@@ -7,28 +7,29 @@
 
 html {
   color-scheme: light dark;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background: #ffffff;
-  color: #0a0a0a;
+  background: #fcfcfc;
+  color: #27272a;
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   font-feature-settings: "ss01", "cv11";
 }
 
 ::selection {
-  background: #0a0a0a;
+  background: #000000;
   color: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #000000;
-    color: #fafafa;
+    background: #1c1c1c;
+    color: #d4d4d8;
   }
 
   ::selection {
-    background: #fafafa;
+    background: #ffffff;
     color: #000000;
   }
 }
