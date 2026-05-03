@@ -7,7 +7,7 @@ const EMAIL = "mmirandasanchez16@gmail.com";
 const STATIC_LINKS: { label: string; href: string; Icon: () => React.JSX.Element }[] = [
   { label: "GitHub", href: "https://github.com/mirchez", Icon: GitHubIcon },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mirchez/", Icon: LinkedInIcon },
-  { label: "X/Twitter", href: "https://x.com/mirchezz", Icon: XIcon },
+  { label: "X", href: "https://x.com/mirchezz", Icon: XIcon },
 ];
 
 export function Links() {
