@@ -4,10 +4,15 @@ import { useState } from "react";
 
 const EMAIL = "mmirandasanchez16@gmail.com";
 
-const STATIC_LINKS: { label: string; href: string; Icon: () => React.JSX.Element }[] = [
+const STATIC_LINKS: {
+  label: string;
+  href: string;
+  Icon: () => React.JSX.Element;
+  hideLabel?: boolean;
+}[] = [
   { label: "GitHub", href: "https://github.com/mirchez", Icon: GitHubIcon },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mirchez/", Icon: LinkedInIcon },
-  { label: "X", href: "https://x.com/mirchezz", Icon: XIcon },
+  { label: "X", href: "https://x.com/mirchezz", Icon: XIcon, hideLabel: true },
 ];
 
 export function Links() {
@@ -35,7 +40,7 @@ export function Links() {
             className="inline-flex items-center gap-1.5 rounded hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
           >
             <link.Icon />
-            <span>{link.label}</span>
+            {!link.hideLabel && <span>{link.label}</span>}
           </a>
         </li>
       ))}
