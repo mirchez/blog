@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Block accidental drops in public/profile (only the real assets get committed manually)
+public/profile/*.pdf
+public/profile/*.md
+public/profile/*.docx
+public/profile/*.txt

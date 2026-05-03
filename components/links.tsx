@@ -11,6 +11,7 @@ const STATIC_LINKS: {
   hideLabel?: boolean;
 }[] = [
   { label: "GitHub", href: "https://github.com/mirchez", Icon: GitHubIcon },
+  { label: "Portfolio", href: "https://miguel-miranda-portfolio.vercel.app", Icon: BriefcaseIcon },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mirchez/", Icon: LinkedInIcon },
   { label: "X", href: "https://x.com/mirchezz", Icon: XIcon, hideLabel: true },
 ];
@@ -97,6 +98,25 @@ function XIcon() {
       aria-hidden="true"
     >
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+function BriefcaseIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
     </svg>
   );
 }
