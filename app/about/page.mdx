@@ -31,6 +31,6 @@ Outside of work I co-founded [Talkeo](https://talkeo.ai), an AI voice tutor for 
 
 — At [Brightlight Health](https://brightlight.ai), I shipped multi-timezone scheduling with drag-and-drop, billing with Stripe, PDF forms using Adobe's API with LLM autofill, video sessions with JWT auth and AI transcription, and a storage migration from Azure to AWS S3 in production.
 
-— Co-founded [Talkeo](https://talkeo.ai), an AI voice language tutor. I built the pedagogy prompts (CEFR-aligned, code-switching policy, L1 transfer error correction), the LiveKit voice pipeline, and the Fish Audio TTS integration.
+— Co-founded [Talkeo](https://talkeo.ai), an AI voice language tutor. Built the full voice stack on LiveKit: Soniox STT (semantic endpointing, ~0ms effective), parallel triple-brain LLM (Gemini Flash Lite for voice + Gemini Flash for tools async), and Fish Audio TTS with cloned voice — sub-second turn latency (~770ms). Designed the pedagogy system (CEFR adaptation, code-switching policy, L1-transfer correction) and a multi-pair routing layer (ES↔EN, PT→EN). Cost-engineered the stack from $0.04 → $0.013/min, sustaining 67% margin on the $20/mo plan. Shipped dLocal Go subscriptions with webhook-verified billing.
 
 — Built [Telos](https://telos-steel.vercel.app), an AI website builder that generates full sites from prompts. Next.js, tRPC, Prisma, OpenAI, with async AI workflows orchestrated through Inngest.
