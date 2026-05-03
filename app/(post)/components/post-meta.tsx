@@ -1,4 +1,5 @@
 import { getPosts } from "@/app/get-posts";
+import { ViewCounter } from "./view-counter";
 
 export async function PostMeta({ id }: { id: string }) {
   const posts = await getPosts();
@@ -9,6 +10,7 @@ export async function PostMeta({ id }: { id: string }) {
     <div className="-mt-4 mb-10 flex items-center justify-between font-mono text-xs text-zinc-500">
       <span>@mirchez · {formatDate(post.date)}</span>
       <span>{post.viewsFormatted} views</span>
+      <ViewCounter id={id} />
     </div>
   );
 }
