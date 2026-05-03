@@ -3,7 +3,7 @@
 > Roadmap ejecutable a `mirchez.com` live. Bloques chicos, cada uno testeable solo. Si un bloque falla el test, no avanzamos. No batch merge — cada fase es un PR/commit revisable en preview.
 
 **Última actualización:** 2026-05-02
-**Estado global:** 🟡 Phase 0-3 done (con cambios), Phase 4 next
+**Estado global:** 🟡 Phase 0-4 done (con cambios), Phase 5 next
 
 > **Nota arquitectónica (2026-05-02):** Phase 2 cambió respecto al plan original. Posts viven como rutas nativas (`app/(post)/<year>/<slug>/page.mdx`) + manifest `app/posts.json`, igual que rauchg/blog — NO en una carpeta `posts/` con dynamic route. Plan detallado de la fase: `~/.claude/plans/image-24-unified-goose.md`. También se sumó light/dark auto via `prefers-color-scheme` (no estaba en el plan original).
 
@@ -142,9 +142,16 @@ Antes de Phase 0, Miguel resuelve:
 
 ---
 
-## Phase 4 — Post page (`/[year]/[slug]`)
+## Phase 4 — Post page (`/[year]/[slug]`) 🟢
 
 **Goal:** página de post completa con meta line, prose, footer con Source link.
+
+**Resultado (2026-05-02):**
+- `<PostMeta id={...} />` server component: lee posts.json, renderiza `@mirchez · <date>` izq + `<views> views` der en monospace dimmed
+- `<PostFooter id={...} />` server component: byline `Miguel Miranda (@mirchezz)` izq + `Source` der (link al `.mdx` en GitHub) en monospace dimmed
+- Ambos imports manuales en cada `.mdx` (explícito > magia). Pattern simple: cada post agrega `<PostMeta id="X" />` y `<PostFooter id="X" />`
+- H1 ajustado: `mb-3` (era mb-6) para que la meta line quede visualmente atada al título
+- 404 ya manejado por Next.js _not-found
 
 **Tareas:**
 - [ ] `app/[year]/[slug]/page.tsx`: dynamic route, leer MDX correspondiente.

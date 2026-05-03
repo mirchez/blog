@@ -1,3 +1,6 @@
+import { PostMeta } from "@/app/(post)/components/post-meta";
+import { PostFooter } from "@/app/(post)/components/post-footer";
+
 export const metadata = {
   title: "Hello world",
   description: "First post — testing the MDX pipeline.",
@@ -8,6 +11,8 @@ export const metadata = {
 };
 
 # Hello world
+
+<PostMeta id="hello-world" />
 
 This is a test post to verify the MDX pipeline works end-to-end. It will be
 deleted before the first real post ships.
@@ -39,3 +44,5 @@ type Post = {
 > Pulled from a quote: Vercel was born out of my frustration in 2015...
 
 That's all for the smoke test.
+
+<PostFooter id="hello-world" />
