@@ -3,7 +3,7 @@
 > Roadmap ejecutable a `mirchez.com` live. Bloques chicos, cada uno testeable solo. Si un bloque falla el test, no avanzamos. No batch merge — cada fase es un PR/commit revisable en preview.
 
 **Última actualización:** 2026-05-02
-**Estado global:** 🟡 Phase 0-2 done (con cambios), Phase 3 next
+**Estado global:** 🟡 Phase 0-3 done (con cambios), Phase 4 next
 
 > **Nota arquitectónica (2026-05-02):** Phase 2 cambió respecto al plan original. Posts viven como rutas nativas (`app/(post)/<year>/<slug>/page.mdx`) + manifest `app/posts.json`, igual que rauchg/blog — NO en una carpeta `posts/` con dynamic route. Plan detallado de la fase: `~/.claude/plans/image-24-unified-goose.md`. También se sumó light/dark auto via `prefers-color-scheme` (no estaba en el plan original).
 
@@ -115,9 +115,15 @@ Antes de Phase 0, Miguel resuelve:
 
 ---
 
-## Phase 3 — Home (lista de posts)
+## Phase 3 — Home (lista de posts) 🟢
 
 **Goal:** `/` renderiza lista Rauch-style: año dimmed mono | título | views dimmed mono.
+
+**Resultado (2026-05-02):**
+- `app/page.tsx`: agrupación por año (año solo en el primer post de cada año), año en mono dimmed izq, título center, views mono dimmed der
+- Hover state: pill gris sutil con `rounded-md px-1.5 py-0.5` bajo el título (group-hover)
+- Color tokens consistentes con light/dark
+- Server component sin SWR (live updates → Phase 6 con KV)
 
 **Tareas:**
 - [ ] `app/page.tsx`: importar lista de `lib/posts.ts`.
