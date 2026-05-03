@@ -1,0 +1,41 @@
+export const metadata = {
+  title: "Hello world",
+  description: "First post — testing the MDX pipeline.",
+  openGraph: {
+    title: "Hello world",
+    description: "First post — testing the MDX pipeline.",
+  },
+};
+
+# Hello world
+
+This is a test post to verify the MDX pipeline works end-to-end. It will be
+deleted before the first real post ships.
+
+## What this exercises
+
+The pipeline needs to render typography, links, code, and lists correctly
+before we commit to writing real content. If something looks off here, it
+will look off everywhere.
+
+A paragraph with an [external link](https://rauchg.com) and an inline
+`code snippet` should render naturally. Internal links like
+[the home page](/) should also work without a full reload.
+
+```ts
+type Post = {
+  id: string;
+  date: string;
+  title: string;
+};
+```
+
+## A short list
+
+- Native Next.js routing for posts
+- `posts.json` as the curated manifest
+- `export const metadata` instead of frontmatter
+
+> Pulled from a quote: Vercel was born out of my frustration in 2015...
+
+That's all for the smoke test.

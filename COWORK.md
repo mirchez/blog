@@ -80,6 +80,8 @@ Decidir cuando el about esté drafteado.
 | 2026-05-02 | Dominio: `mirchez.com` | Username consistente (LinkedIn, X, GitHub). Memorable. |
 | 2026-05-02 | Brightlight: nombrar empleador, descripción genérica de features, NO nombrar clientes ni compañeros | Empleador es público (LinkedIn). Confidencialidad de cliente/datos sigue. Ver `CLAUDE.md` sección Confidencialidad. |
 | 2026-05-02 | Balance posicionamiento: hero AI eng, Technical contributions balanceado | Brightlight es XP real, no esconder. Pero la identidad se vende AI. |
+| 2026-05-02 | Auto light/dark via `prefers-color-scheme` (sin toggle UI) | Rauch lo hace así. Match a la inspiración + zero JS overhead + respeta preferencia del visitante. |
+| 2026-05-02 | Posts route-based (`app/(post)/<year>/<slug>/page.mdx`) + manifest `app/posts.json`, NO carpeta `posts/` con dynamic route | Espejo 1:1 de Rauch. Menos deps (sin gray-matter ni zod). Frontmatter via `export const metadata`. Trade-off: agregar post requiere line en posts.json. |
 
 ---
 
@@ -132,4 +134,4 @@ Decidir el primero cuando el site esté deployado.
 - [ ] OG image específica por post (si aporta).
 - [ ] Newsletter? — descartado por ahora, fricción innecesaria. Reevaluar a los 3 posts.
 - [ ] Comentarios? — no. Rauch no tiene. Cero fricción.
-- [ ] Dark/light toggle? — no. Solo dark, como Rauch.
+- [ ] Dark/light toggle UI? — no. Auto via `prefers-color-scheme` (igual que Rauch). Sin toggle, sin localStorage. El OS manda.

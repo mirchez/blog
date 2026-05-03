@@ -5,14 +5,14 @@ export function Header() {
     <header className="flex items-center justify-between py-10">
       <Link
         href="/"
-        className="font-bold text-zinc-50 hover:text-zinc-300 transition-colors"
+        className="font-bold text-zinc-900 dark:text-zinc-50 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
       >
         Miguel Miranda
       </Link>
-      <nav className="flex items-center gap-6 text-sm text-zinc-400">
+      <nav className="flex items-center gap-6 text-sm text-zinc-600 dark:text-zinc-400">
         <Link
           href="/about"
-          className="hover:text-zinc-50 transition-colors"
+          className="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
         >
           About
         </Link>
@@ -20,7 +20,7 @@ export function Header() {
           href="https://x.com/mirchezz"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 hover:text-zinc-50 transition-colors"
+          className="flex items-center gap-1.5 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
         >
           <XIcon />
           Follow me

@@ -3,7 +3,9 @@
 > Roadmap ejecutable a `mirchez.com` live. Bloques chicos, cada uno testeable solo. Si un bloque falla el test, no avanzamos. No batch merge — cada fase es un PR/commit revisable en preview.
 
 **Última actualización:** 2026-05-02
-**Estado global:** 🟡 Phase 0 done, Phase 1 next
+**Estado global:** 🟡 Phase 0-2 done (con cambios), Phase 3 next
+
+> **Nota arquitectónica (2026-05-02):** Phase 2 cambió respecto al plan original. Posts viven como rutas nativas (`app/(post)/<year>/<slug>/page.mdx`) + manifest `app/posts.json`, igual que rauchg/blog — NO en una carpeta `posts/` con dynamic route. Plan detallado de la fase: `~/.claude/plans/image-24-unified-goose.md`. También se sumó light/dark auto via `prefers-color-scheme` (no estaba en el plan original).
 
 Leyenda: ⚪ pendiente · 🟡 en progreso · 🟢 done · ❌ bloqueado
 
@@ -49,9 +51,18 @@ Antes de Phase 0, Miguel resuelve:
 
 ---
 
-## Phase 1 — Look & feel base
+## Phase 1 — Look & feel base 🟢
 
 **Goal:** Layout global con header + container + footer, fonts Geist, fondo negro, tipografía Rauch-like. Página home placeholder.
+
+**Resultado (2026-05-02):**
+- `app/layout.tsx`: container max-w-2xl, Geist Sans + Mono via next/font, metadata real (title, OG, Twitter, robots)
+- `app/globals.css`: bg #000, color-scheme dark, font-feature ss01+cv11
+- `components/header.tsx`: nombre bold + links About / Follow me con SVG X inline
+- `components/footer.tsx`: placeholder mono dimmed
+- `app/page.tsx`: "Posts coming soon."
+- Public assets default removidos
+- typecheck + lint + build limpios
 
 **Tareas:**
 - [ ] `app/layout.tsx`: `lang="en"`, fondo `bg-black`, texto `text-zinc-100`, Geist Sans + Geist Mono via `next/font/google` (o `geist` package oficial).
@@ -71,9 +82,22 @@ Antes de Phase 0, Miguel resuelve:
 
 ---
 
-## Phase 2 — MDX pipeline
+## Phase 2 — MDX pipeline 🟢
 
-**Goal:** posts en MDX en `posts/<year>/<slug>.mdx` se parsean, ordenan y agrupan por año.
+**Goal original:** posts en MDX en `posts/<year>/<slug>.mdx` parseados con gray-matter.
+**Goal real ejecutado:** posts route-based estilo Rauch (`app/(post)/<year>/<slug>/page.mdx`) + manifest `app/posts.json`.
+
+**Resultado (2026-05-02):**
+- @next/mdx + @mdx-js/react + @mdx-js/loader + @types/mdx instalados
+- `next.config.ts` con `withMDX`, `pageExtensions`, `experimental.mdxRs: true`
+- `mdx-components.tsx` root con overrides: a, p, h1-h3, code (inline + block), ul, ol, li, blockquote
+- `app/(post)/layout.tsx` shared para todos los posts
+- `app/(post)/components/*.tsx` (8 archivos de prose)
+- `app/posts.json` manifest, `app/get-posts.ts` con `Post` type
+- Test post: `app/(post)/2026/hello-world/page.mdx`
+- `app/page.tsx`: home con lista mínima `[year] [title] [—]` (lista pulida → Phase 3)
+- **Bonus:** light/dark auto via `prefers-color-scheme` (todos los componentes Phase 1 + 2 ajustados)
+- typecheck + lint + build limpios
 
 **Tareas:**
 - [ ] Instalar `@next/mdx`, `gray-matter`, `remark-gfm`, `rehype-slug`, `rehype-pretty-code` (syntax highlight).

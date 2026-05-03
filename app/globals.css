@@ -1,24 +1,34 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-background: #000000;
-  --color-foreground: #fafafa;
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light dark;
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: #ffffff;
+  color: #0a0a0a;
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   font-feature-settings: "ss01", "cv11";
 }
 
 ::selection {
-  background: #fafafa;
-  color: #000000;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #000000;
+    color: #fafafa;
+  }
+
+  ::selection {
+    background: #fafafa;
+    color: #000000;
+  }
 }
