@@ -45,3 +45,7 @@ public/profile/*.pdf
 public/profile/*.md
 public/profile/*.docx
 public/profile/*.txt
+public/profile/*.dmg
+public/profile/*.zip
+public/profile/*.mp4
+public/profile/*.mov
